@@ -14,13 +14,13 @@ resize_crop () {
         if ! [ -z "${RATIO}" ]; then
             IMG_RATIO=$RATIO
         else
-            # calc soirce image aspect ratio
+            # calulate source image aspect ratio
             IMG_RATIO="$(echo "scale=10; $IMG_W/$IMG_H" | bc)";
         fi
-        # calc dest image height
+        # calculate destination image height
         IMG_DEST_H="$(echo "scale=0; $IMG_DEST_W/$IMG_RATIO" | bc)";
         IMG_DEST="$(echo "${IMG_DEST_W}x${IMG_DEST_H}")";
-        # crop
+        # crop and resize
         convert "$file" -strip \
         -bordercolor White \
         -fuzz 1% -trim +repage \
@@ -47,7 +47,7 @@ help ()
    fi
    echo "Images: Resize, crop with border and expand to desired dimensions."
    echo
-   echo "Syntax: $0 [-h|-w 1920|-q 90 | -r 1.5 | -b 5%] *.jpg"
+   echo "Syntax: $0 [-h| -w 1920| -q 90| -r 1.5| -b 5%] *.jpg"
    echo "options:"$
    echo "   -h     Print this Help."
    echo "   -w     Set destination image width ($IMG_DEST_W_DEFAULT)."
