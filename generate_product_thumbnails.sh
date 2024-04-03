@@ -41,7 +41,7 @@ gen_thumbnails() {
 		# calculate destination image height
 		IMG_DEST_H="$(echo "scale=0; $IMG_DEST_W/$IMG_RATIO" | bc)"
 		IMG_DEST="$(echo "${IMG_DEST_W}x${IMG_DEST_H}")"
-		TEXT_SIZE="$(echo "$IMG_DEST_H * 0.09" | bc)"
+		TEXT_SIZE="$(echo "$IMG_DEST_H * $TEXT_SCALE" | bc)"
 		FILENAME=${file%%.*}
 		EXTENSION="${file#*.}"
 
@@ -149,7 +149,7 @@ fi
 if [ -z "${TEXT_COLOR}" ]; then
 	TEXT_COLOR=$TEXT_COLOR_DEFAULT
 fi
-if [ -z "${TEXT_SIZE}" ]; then
+if [ -z "${TEXT_SCALE}" ]; then
 	TEXT_SCALE=$TEXT_SCALE_DEFAULT
 fi
 # test if options are correct
