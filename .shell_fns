@@ -1,4 +1,4 @@
-alias imgResizeFHD='function resize_fhd_tmp() { for file in "$@"; do convert "$file" -resize 1920 -quality 90 -strip "$file"; done; }; resize_fhd_tmp'
-alias imgResizeWQHD='function resize_wqhd_tmp() { for file in "$@"; do convert "$file" -resize 2700 -quality 90 -strip "$file"; done; }; resize_wqhd_tmp'
+alias imgResizeFHD='function resize_fhd_tmp() { mkdir -p resize_fhd; for file in "$@"; do convert "$file" -resize 1920 -quality 90 -strip "resize_fhd/$file"; done; }; resize_fhd_tmp'
+alias imgResizeWQHD='function resize_wqhd_tmp() { mkdir -p resize_wqhd; for file in "$@"; do convert "$file" -resize 2700 -quality 90 -strip "resize_wqhd/$file"; done; }; resize_wqhd_tmp'
 alias imgResizeCrop='~/effective-waffle-sh/resize_crop.sh'
 alias imgGenThumbs='~/effective-waffle-sh/generate_product_thumbnails.sh'
