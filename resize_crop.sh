@@ -23,7 +23,7 @@ resize_crop() {
 
 		mkdir -p crop
 		# crop and resize
-		convert "$file" -strip \
+		magick "$file" -strip \
 			-bordercolor White \
 			-fuzz 1% -trim +repage \
 			-border $BORDER \

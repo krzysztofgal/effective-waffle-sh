@@ -10,7 +10,7 @@ TEXT_SCALE_DEFAULT=0.09
 
 # crop, resize and add text
 gen_image() {
-	convert "$file" -strip \
+	magick "$file" -strip \
 		-bordercolor White \
 		-fuzz 1% -trim +repage \
 		-border $BORDER \
